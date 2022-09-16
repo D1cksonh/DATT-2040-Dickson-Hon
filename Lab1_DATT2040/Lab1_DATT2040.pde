@@ -1,43 +1,49 @@
-float x = 0;
-float y = 0;
-float redX = 50;
-float greenX = 50;
-float blueX = 50;
+//Modified code from the 2040 github
 
-void setup(){
-  size(800,800);
-  rectMode(CENTER);
-  background(0);
+int col = 25;
+int row = 25;
+
+//Variabels for the amount of circles
+int stepX, stepY;
+
+//Variables for the counter
+float circleX = 2;
+float speedX = 20;
+
+void setup() {
+ size(500,500);
+ 
+ stepX = width/col;
+ stepY = height/row;
+ 
+ background(35);
 }
 
 void draw() {
-  if(mousePressed == true){
-    //RNG color
-    redX = random(255);
-    greenX = random(255);
-    blueX = random(255);
-    
-    //Horizontal Box
-    noStroke();
-    fill(redX,greenX,blueX);
-    rect(mouseX,mouseY,x,25);
-    x += 2;
-    
-    //Verticle Box
-    noStroke();
-    fill(redX,greenX,blueX);
-    rect(mouseX,mouseY,25,y);
-    y += 2;
-  }
+  //Counter for when the cirlces change color
+  ellipse(circleX,999,50,50);
+  circleX = circleX + speedX;
   
-  //Stop Making Bars
-  if(mousePressed == false) {
-    x = 0;
-    y = 0;
-  }
-  
-  //Reset Background
-  if(keyPressed && key == '1'){
-    background(0);
+  //When the counter hits a certain number, the colors of the cirlces will change
+  if(circleX > width || circleX < 0) {
+    speedX = speedX * -1;
+    
+    //Changing the grid colors of the 
+    for(int i=0; i<col; i++){
+      for(int j=0; j<row; j++){
+     
+       float x = i * stepX;
+       float y = j * stepY;
+       
+       if(random(1) > 0.5){
+         fill(random(255),random(255),random(255));
+        }else{
+         fill(0);
+       }
+       
+       noStroke();
+       ellipse(x,y,stepX,stepY); 
+       }
+     }
   }
 }
