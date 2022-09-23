@@ -4,9 +4,11 @@
 //Pressing any key on the keyboard will clean the sketch and reset it 
 //The code used here is a "modifed" code on the DATT 2040 github 
 
+//Circle Positions
 PVector pos;
 PVector acc; 
 
+//Random Colors
 float redX;
 float greenX;
 float blueX;
