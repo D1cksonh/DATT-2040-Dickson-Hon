@@ -1,5 +1,6 @@
 //This sketch is wherever you click the mouse, you will create circles that will bounce off the walls of the sketch
 //The circles will be a random color each time you left click in the sketch
+//The circles will move in a random direction when you left click in the sketch
 //Pressing any key on the keyboard will clean the sketch and reset it 
 //The code used here is a "modifed" code on the DATT 2040 github 
 
