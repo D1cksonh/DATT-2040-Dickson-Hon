@@ -1,18 +1,30 @@
+//This sketch is wherever you click the mouse, you will create circles that will bounce off the walls of the sketch
+//The circles will be a random color each time you left click in the sketch
+//Pressing any key on the keyboard will clean the sketch and reset it 
+//The code used here is a "modifed" code on the DATT 2040 github 
+
 PVector pos;
 PVector acc; 
+
+float redX;
+float greenX;
+float blueX;
 
 void setup() {
   size(500, 500);
   pos = new PVector(mouseX, mouseY, random(30, 70));
-  acc = new PVector (random(-5,5),random(-5,5),0);
+  acc = new PVector (5,5,0);
   background(0);
- 
+  
+  float redX = random(255);
+  float greenX = random(255);
+  float blueX = random(255);
 }
 
 void draw() {
   if(mousePressed == true){
     noFill();
-    stroke(random(255),random(255),random(255),100);
+    stroke(redX,greenX,blueX,100);
     ellipse(pos.x, pos.y, pos.z, pos.z);
     point(pos.x, pos.y);
     
@@ -31,6 +43,9 @@ void draw() {
 
 void mousePressed(){
   pos = new PVector(mouseX, mouseY, random(40, 70));
+  redX = random(255);
+  greenX = random(255);
+  blueX = random(255);
 }
 
 void keyPressed() {
