@@ -1,3 +1,10 @@
+/*
+This Lab task is using PVectors to create a miniature game 
+There are 2 different colored balls on the screen, red and/or blue
+Eating the red ball will make the sqaure be larger while eating the blue square will make your square smaller 
+This lab task uses PVectors to help creating the moving balls on the screen
+*/
+
 //Balls Variables
 PVector[] balls;
 PVector[] acc; 
@@ -21,7 +28,7 @@ int scoreNum = 0;
 void setup() {
   size(800, 800);
   
-  //create new 
+  //Ball Vectors
   balls = new PVector[num];
   acc = new PVector [num];
 
@@ -29,12 +36,12 @@ void setup() {
   acc2 = new PVector [num2];
  
  //Populate
-  for (int i = 0; i < num; i++) {
+  for (int i=0; i<num; i++) {
     balls[i] = new PVector(random(width), random(height), random(5, 70));
     acc[i] = new PVector (random(-speed,speed),random(-speed,speed),0);
   }
   
-  for (int j = num; j < num2; j++) {
+  for (int j=num; j<num2; j++) {
     balls2[j] = new PVector(random(width), random(height), random(5, 70));
     acc2[j] = new PVector (random(-speed,speed),random(-speed,speed),0);
   }
@@ -48,7 +55,8 @@ void draw(){
   screenText();
 }
 
-void userMouse(){
+//When the user mouse touches a ball
+void userMouse(){ 
   PVector mouseballs = new PVector(mouseX,mouseY);
   fill(0,255,0);
   rectMode(CENTER);
@@ -79,6 +87,7 @@ void userMouse(){
   }
 }
 
+//For the red balls
 void makeRedBalls() {
   for(int i=0; i<num; i++) {
     noStroke();
@@ -96,6 +105,7 @@ void makeRedBalls() {
   }
 }
 
+//For the blue balls
 void makeBlueBalls() {
   for(int j=num; j<num2; j++) {
     noStroke();
@@ -113,6 +123,7 @@ void makeBlueBalls() {
   }
 }
 
+//Text on screen to display numbers
 void screenText(){
   textSize(25);
   text("Size:",50,50);
