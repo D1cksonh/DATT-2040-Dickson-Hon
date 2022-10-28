@@ -21,13 +21,16 @@ void draw() {
   float a = (squareX / (float) width) * 90f;
   theta = radians(a);
   translate(width/2,height);
-  rect(0,0,0,-120);
+  noStroke();
+  fill(squareX/2,0,0);
+  rect(0,0,5,-120);
   translate(0,-120);
   branch(120);
 }
 
 void branch(float h) {
   h *= 0.60;
+  noStroke();
   
   if (h > 2) {
     fill(squareX/2,0,0);
