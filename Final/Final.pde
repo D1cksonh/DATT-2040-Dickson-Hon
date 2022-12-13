@@ -1,3 +1,9 @@
+// This final project is an shooter game
+// You are controlling the space ship on the bottom of the sketch and you can control it by moving the mouse left and right
+// pressing the mouse button will shoot a laser form a ship
+// Your goal is to shoot as many aliens as possible to prevent the aliens from reaching the end of the screen
+// If 3 aliens reach the end of the screen the game ends
+
 import processing.sound.*; // Uses the proccessing sound libary to make sounds
 SoundFile pop;
 PVector[] circle;
@@ -43,7 +49,8 @@ void draw(){
 
 void shoot(){
   fill(0,0,255);
-  if(mousePressed){
+  if(mousePressed){ 
+    // code bellow is taken from DATT 2040 sketch lab practice, used to make the waves
       for(int i=0; i<width; i++){
         float mv = map(100, 10, width, 0.01, 0.5);
       
